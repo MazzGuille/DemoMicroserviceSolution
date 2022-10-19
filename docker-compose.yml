@@ -9,7 +9,7 @@ services:
     image: mcr.microsoft.com/mssql/server:2022-latest
     environment:
      - ACCEPT_EULA=Y
-    # - SA_PASSWORD=p@ssw0rd123#
+     - SA_PASSWORD=p@ssw0rd123#
     networks:
      - backend
     ports:
@@ -27,4 +27,4 @@ services:
     environment:
        - DB_HOST=customerdb
        - DB_NAME=customer
-      # - DB_SA_PASSWORD=p@ssw0rd123#
+       - DB_SA_PASSWORD=p@ssw0rd123#
