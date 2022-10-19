@@ -15,8 +15,10 @@ namespace CustomerWebAPi
 				var databaseCreator = Database.GetService<IDatabaseCreator>() as RelationalDatabaseCreator;
 				if(databaseCreator != null)
 				{
-					if (!databaseCreator.CanConnect()) databaseCreator.Create();
-					if (!databaseCreator.HasTables()) databaseCreator.CreateTables();
+                    //creates database if it cannot connect, meaning the datyabase does not exist
+                    if (!databaseCreator.CanConnect()) databaseCreator.Create();
+                    //creates table if it does not exist
+                    if (!databaseCreator.HasTables()) databaseCreator.CreateTables();
 				}
 			}
 			catch (Exception e)
