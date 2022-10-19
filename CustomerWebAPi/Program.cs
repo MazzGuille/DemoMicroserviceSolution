@@ -13,8 +13,9 @@ builder.Services.AddSwaggerGen();
 //-----------------------------------DATABASE CONTEXT DEPENDENCY INJECTION---------------------//
 var dbHost = Environment.GetEnvironmentVariable("DB_HOST");
 var dbName = Environment.GetEnvironmentVariable("DB_NAME");
+var dbpass = Environment.GetEnvironmentVariable("DB_SA_PASSWORD");
 
-var connectionString = $"Data Source={dbHost}; Initial Catalog={dbName}; Integrated Security = true";
+var connectionString = $"Data Source={dbHost}; Initial Catalog={dbName}; User=sa; Password={dbpass}";
 
 builder.Services.AddDbContext<CustomerDbContext>(x => x.UseSqlServer(connectionString));
 
